@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+env/
+env_*/
+
+# Data / outputs / logs
+/data/
+/runs/
+/outputs/
+/logs/
+/weights/
+
+# Large files (LFS-tracked or external)
+*.pt
+*.pth
+*.ckpt
+*.zip
+*.tar.gz
+
+# System
+.DS_Store

@@ -10,7 +10,6 @@ env_*/
 /runs/
 /outputs/
 /logs/
-/weights/
 
 # Large files (LFS-tracked or external)
 *.pt

@@ -8,6 +8,16 @@ import os
 import tempfile
 import zipfile
 from pathlib import Path
+# At very top of app.py — immediate workaround to ensure headless OpenCV is installed
+import sys, subprocess, os
+
+# Only try this once per process to avoid repeated installs on reruns
+if not os.environ.get("CV2_HEADLESS_FORCED"):
+    os.environ["CV2_HEADLESS_FORCED"] = "1"
+    # uninstall any conflicting GUI opencv wheel, then install the headless wheel
+    subprocess.run([sys.executable, "-m", "pip", "uninstall", "-y", "opencv-python", "opencv-contrib-python"], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.run([sys.executable, "-m", "pip", "install", "--no-deps", "--force-reinstall", "opencv-python-headless==4.10.0.84"], check=True)
+
 
 st.set_page_config(page_title="YOLOv8 Landmark Inference", layout="wide")
 

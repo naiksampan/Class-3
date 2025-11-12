@@ -2,14 +2,15 @@
 # YOLOv8 Landmark Inference UI
 # =============================
 
+# Image processing and array manipulation
+opencv-python-headless==4.10.0.84
 # Core YOLO and PyTorch dependencies
 ultralytics==8.3.227
 ultralytics-thop==2.0.18
 torch>=2.0.0
 torchvision>=0.15.0
 
-# Image processing and array manipulation
-opencv-python-headless==4.10.0.84
+
 Pillow>=9.4.0
 numpy>=1.24.0
 

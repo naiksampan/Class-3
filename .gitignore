@@ -12,8 +12,6 @@ env_*/
 /logs/
 
 # Large files (LFS-tracked or external)
-*.pt
-*.pth
 *.ckpt
 *.zip
 *.tar.gz

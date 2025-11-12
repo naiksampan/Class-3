@@ -16,7 +16,7 @@ st.write("Upload images or provide a local folder path. The app will run YOLOv8 
 
 # --- Sidebar: model path and options ---
 st.sidebar.header("Model & Inference Options")
-model_path = st.sidebar.text_input("Path to YOLOv8 weights (best.pt)", value="/weights/best.pt")
+model_path = st.sidebar.text_input("Path to YOLOv8 weights (best.pt)", value="Class-3/weights/best.pt")
 conf_thres = st.sidebar.slider("Confidence threshold", 0.0, 1.0, 0.25, 0.01)
 iou_thres = st.sidebar.slider("IOU threshold (NMS)", 0.0, 1.0, 0.45, 0.01)
 max_det = st.sidebar.number_input("Max detections per image", min_value=1, max_value=1000, value=100)

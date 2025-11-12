@@ -1,5 +1,30 @@
 
 import streamlit as st
+import importlib, sys, traceback
+
+def try_import_cv2():
+    try:
+        m = importlib.import_module("cv2")
+        return m
+    except Exception as e:
+        return e
+
+cv2_result = try_import_cv2()
+if isinstance(cv2_result, Exception):
+    st.set_page_config(page_title="App: dependency issue")
+    st.title("Dependency error: OpenCV not usable in this runtime")
+    st.error("The app could not import OpenCV (cv2). Hosted environments require the headless OpenCV wheel to be installed at build time.")
+    st.markdown(
+        "**What to do**:\n\n"
+        "1. Ensure `opencv-python-headless==4.10.0.84` is listed at the top of `requirements.txt`.\n"
+        "2. In the Streamlit dashboard, `Clear build cache` / `Rebuild` the app so dependencies are installed at build time.\n"
+        "3. If that isn't possible, consider deploying with a custom Docker image that installs the required system libs.\n\n"
+        "After making changes, push to GitHub to trigger a rebuild."
+    )
+    st.write("Full error below (for debugging):")
+    st.text(traceback.format_exc())
+    st.stop()
+    
 from ultralytics import YOLO
 import cv2
 import numpy as np
